@@ -2,8 +2,6 @@ name: Continuous Integration
 on: 
   push:
     branches: [master]
-  pull_request:
-    branches: [master]
 env:
   SEMAPHORE_VERSION: 2.6.9
   GITHUB_REPO: fgierlinger/semaphore
@@ -42,16 +40,6 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
-      - 
-        name: Build fleet-server for arm64
-        if: github.event_name == 'pull_request'
-        uses: docker/build-push-action@v2
-        with:
-          push: false
-          platforms: linux/arm64
-          tags: ${{ env.GITHUB_REPO }}:${{ env.SEMAPHORE_VERSION }}
-          file: Dockerfile
-          build-args: SEMAPHORE_VERSION=${{ env.SEMAPHORE_VERSION }}
       - 
         name: Build fleet-server for arm64
         if: github.event_name == 'push'
