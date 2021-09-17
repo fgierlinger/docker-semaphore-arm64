@@ -3,7 +3,7 @@ on:
   pull_request:
     branches: [master]
 env:
-  SEMAPHORE_VERSION: 2.7.20
+  SEMAPHORE_VERSION: 2.7.22
   GITHUB_REPO: fgierlinger/semaphore
 jobs:
   build:
