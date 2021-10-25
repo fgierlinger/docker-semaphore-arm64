@@ -3,7 +3,7 @@ on:
   push:
     branches: [master]
 env:
-  SEMAPHORE_VERSION: 2.8.2
+  SEMAPHORE_VERSION: 2.8.4
   GITHUB_REPO: fgierlinger/semaphore
 jobs:
   bump_version:
